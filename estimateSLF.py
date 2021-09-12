@@ -1,6 +1,7 @@
 #%%
 
 import numpy as np
+from numpy.lib.function_base import vectorize
 
 class EstimateSLF:
 
@@ -20,3 +21,9 @@ class EstimateSLF:
                 slf_matrix[i-1, j-1] = self.vector[k-1, 0]
 
         return slf_matrix
+
+#%%
+sample_vector = np.random.randn(100,1)
+# %%
+sampleclass = EstimateSLF(sample_vector,10,10)
+# %%
