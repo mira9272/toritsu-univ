@@ -1,6 +1,6 @@
 #%%
 
-import numpy
+import numpy as np
 
 class EstimateSLF:
 
@@ -11,10 +11,10 @@ class EstimateSLF:
 
     def vector2matrix(self):
 
-        slf_matrix = numpy.zeros((self.rowsize, self.colsize))
+        slf_matrix = np.zeros((self.rowsize, self.colsize))
 
-        for i in range(self.rowsize):
-            for j in range(self.colsize):
+        for i in range(1, self.rowsize + 1):
+            for j in range(1, self.colsize + 1):
 
                 k = i + (j - 1) * self.rowsize
                 slf_matrix[i-1, j-1] = self.vector[k-1, 0]
