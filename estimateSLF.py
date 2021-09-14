@@ -2,7 +2,6 @@
 
 import numpy as np
 
-
 class EstimateSLF:
 
     def __init__(self, estparam, N1, N2):

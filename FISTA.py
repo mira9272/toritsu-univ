@@ -2,7 +2,6 @@
 
 import math
 import numpy as np
-import numpy.linalg as LA
 
 def FISTA(map_A, estimate_y, opt_lambda):
 
@@ -24,7 +23,7 @@ def FISTA(map_A, estimate_y, opt_lambda):
         init_w = new_w
         init_beta = new_beta
 
-
+        # LASSO
         output_v = init_x + np.array(map_A).T * (estimate_y - map_A * init_w) / Lipschitz_L * opt_lambda
 
         # 軟判定しきい値関数
@@ -36,7 +35,7 @@ def FISTA(map_A, estimate_y, opt_lambda):
             return new_x
 
         # 高速化部分
-        new_beta = 1 / 2 (1 + math.sqrt(1 + 4(init_beta) ^ 2))
+        new_beta = (1 + math.sqrt(1 + 4 * (init_beta) * (init_beta))) / 2
         new_w = new_x + (init_beta - 1) * (new_x - init_x) / new_beta
 #%%
     # 軟判定しきい値関数
