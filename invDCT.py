@@ -24,7 +24,7 @@ class InvDCT:
 
                         for kx in range(1, self.Nx + 1):
                             for ky in range(1, self.Ny + 1):
-                                for kz in range(1,self.Nz + 1):
+                                for kz in range(1, self.Nz + 1):
                                     for kt in range(1, self.Nt + 1):
 
                                         k = (kx - 1) * self.Ny * self.Nz * self.Nt + \
